@@ -9,7 +9,7 @@ public class Quote {
         this.text = text;
     }
 
-    Book getBook() {
+    public Book getBook() {
         return book;
     }
 
@@ -17,7 +17,7 @@ public class Quote {
         this.book = book;
     }
 
-    String getText() {
+    public String getText() {
         return text;
     }
 
