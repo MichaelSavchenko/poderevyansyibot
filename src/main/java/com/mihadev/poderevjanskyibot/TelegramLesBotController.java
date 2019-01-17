@@ -9,16 +9,13 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-import java.util.stream.Collectors;
+import java.util.Objects;
 
-import static com.mihadev.poderevjanskyibot.Quotes.QUOTES;
-import static java.util.Collections.*;
+import static com.mihadev.poderevjanskyibot.LesBotService.findQuotes;
+import static com.mihadev.poderevjanskyibot.LesBotService.getRandomQuote;
+import static java.util.Collections.singletonList;
 
-public class LesBotController extends TelegramLongPollingBot {
+public class TelegramLesBotController extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
@@ -27,11 +24,11 @@ public class LesBotController extends TelegramLongPollingBot {
         sendMessage.setChatId(message.getChatId());
         sendMessage.setReplyToMessageId(message.getMessageId());
         String text = message.getText();
-        if (text.equalsIgnoreCase("/Лесь")) {
-            sendRandomQuote(sendMessage);
-        }else {
-            List<Quote> quotes = findQuote(text);
-            String answer = convertToAnswer(quotes);
+
+        if (isNotEmpty(text) && text.equalsIgnoreCase("/Лесь")) {
+            sendMessage(sendMessage, getRandomQuote());
+        } else {
+            String answer = findQuotes(text);
             if (answer.isEmpty()) {
                 answer = "Нема таких слів у класіка! Спробуй ще!";
             }
@@ -39,12 +36,8 @@ public class LesBotController extends TelegramLongPollingBot {
         }
     }
 
-    private void sendRandomQuote(SendMessage sendMessage) {
-        Random random = new Random();
-        int i = random.nextInt(QUOTES.size());
-        Quote quote = QUOTES.get(i);
-        String answer = convertToAnswer(singletonList(quote));
-        sendMessage(sendMessage, answer);
+    private boolean isNotEmpty(String text) {
+        return Objects.nonNull(text) && !text.isEmpty();
     }
 
     private void sendMessage(SendMessage sendMessage, String answer) {
@@ -55,22 +48,6 @@ public class LesBotController extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-    }
-
-    private String convertToAnswer(List<Quote> quotes) {
-        return quotes.stream()
-                    .map(quote -> quote.getBook().bookName + " : " + quote.getText())
-                    .collect(Collectors.joining("\n\n"));
-    }
-
-    private List<Quote> findQuote(String text) {
-        List<Quote> result = new ArrayList<>();
-        for (Quote q : QUOTES) {
-            if (q.getText().toLowerCase().contains(text.toLowerCase())) {
-                result.add(q);
-            }
-        }
-        return result;
     }
 
     private void setButton(SendMessage sendMessage) {

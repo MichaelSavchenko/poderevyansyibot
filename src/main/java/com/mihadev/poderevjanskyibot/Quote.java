@@ -4,12 +4,12 @@ public class Quote {
     private Book book;
     private String text;
 
-    public Quote(Book book, String text) {
+    Quote(Book book, String text) {
         this.book = book;
         this.text = text;
     }
 
-    public Book getBook() {
+    Book getBook() {
         return book;
     }
 
@@ -17,7 +17,7 @@ public class Quote {
         this.book = book;
     }
 
-    public String getText() {
+    String getText() {
         return text;
     }
 

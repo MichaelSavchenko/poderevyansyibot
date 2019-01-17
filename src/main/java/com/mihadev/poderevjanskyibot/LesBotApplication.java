@@ -12,7 +12,7 @@ public class LesBotApplication {
         ApiContextInitializer.init();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
         try {
-            telegramBotsApi.registerBot(new LesBotController());
+            telegramBotsApi.registerBot(new TelegramLesBotController());
         } catch (TelegramApiRequestException e) {
             e.printStackTrace();
         }
