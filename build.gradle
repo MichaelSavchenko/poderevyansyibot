@@ -12,6 +12,9 @@ repositories {
     mavenCentral()
 }
 
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
+
 dependencies {
     compile "org.telegram:telegrambots-spring-boot-starter:4.1"
 }
