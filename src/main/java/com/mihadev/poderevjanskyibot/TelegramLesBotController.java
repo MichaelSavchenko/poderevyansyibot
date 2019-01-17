@@ -12,7 +12,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import java.util.Objects;
 
 import static com.mihadev.poderevjanskyibot.LesBotService.findQuotes;
-import static com.mihadev.poderevjanskyibot.LesBotService.getRandomQuote;
+import static com.mihadev.poderevjanskyibot.LesBotService.getRandomStringQuote;
 import static java.util.Collections.singletonList;
 
 public class TelegramLesBotController extends TelegramLongPollingBot {
@@ -26,7 +26,7 @@ public class TelegramLesBotController extends TelegramLongPollingBot {
         String text = message.getText();
 
         if (isNotEmpty(text) && text.equalsIgnoreCase("/Лесь")) {
-            sendMessage(sendMessage, getRandomQuote());
+            sendMessage(sendMessage, getRandomStringQuote());
         } else {
             String answer = findQuotes(text);
             if (answer.isEmpty()) {

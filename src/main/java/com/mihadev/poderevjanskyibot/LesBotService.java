@@ -28,11 +28,15 @@ class LesBotService {
         return convertToAnswer(result);
     }
 
-    static String getRandomQuote() {
+    static String getRandomStringQuote() {
+        Quote quote = getRandomQuote();
+        return convertToAnswer(singletonList(quote));
+    }
+
+    static Quote getRandomQuote() {
         Random random = new Random();
         int i = random.nextInt(QUOTES.size());
-        Quote quote = QUOTES.get(i);
-        return convertToAnswer(singletonList(quote));
+        return QUOTES.get(i);
     }
 
 

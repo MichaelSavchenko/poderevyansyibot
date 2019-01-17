@@ -17,4 +17,5 @@ build.mustRunAfter clean
 
 dependencies {
     compile "org.telegram:telegrambots-spring-boot-starter:4.1"
+    compile "org.springframework.boot:spring-boot-starter-web:2.1.2.RELEASE"
 }
