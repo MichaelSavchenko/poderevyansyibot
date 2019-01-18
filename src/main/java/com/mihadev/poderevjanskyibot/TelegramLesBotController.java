@@ -22,7 +22,6 @@ public class TelegramLesBotController extends TelegramLongPollingBot {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(message.getChatId());
-        sendMessage.setReplyToMessageId(message.getMessageId());
         String text = message.getText();
 
         if (isNotEmpty(text) && text.equalsIgnoreCase("/Лесь")) {
