@@ -18,6 +18,9 @@ jar {
                 'Main-Class': 'com.mihadev.poderevjanskyibot.LesBotApplication'
         )
     }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 task stage(type: Copy, dependsOn: [clean, build]) {
@@ -34,6 +37,6 @@ clean << {
 }
 
 dependencies {
-    compile group: 'org.telegram', name: 'telegrambots', version: '4.0.1'
+    compile group: 'org.telegram', name: 'telegrambots', version: '4.1'
     compile "org.springframework.boot:spring-boot-starter-web:2.1.2.RELEASE"
 }
