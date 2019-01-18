@@ -9,13 +9,13 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 @SpringBootApplication
 public class LesBotApplication {
     public static void main(String[] args) {
-        ApiContextInitializer.init();
+    /*    ApiContextInitializer.init();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
         try {
             telegramBotsApi.registerBot(new TelegramLesBotController());
         } catch (TelegramApiRequestException e) {
             e.printStackTrace();
-        }
+        }*/
         SpringApplication.run(LesBotApplication.class, args);
     }
 }

@@ -1,7 +1,5 @@
 package com.mihadev.poderevjanskyibot;
 
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
