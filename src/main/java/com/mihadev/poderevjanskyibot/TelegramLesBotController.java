@@ -24,14 +24,16 @@ public class TelegramLesBotController extends TelegramLongPollingBot {
         sendMessage.setChatId(message.getChatId());
         String text = message.getText();
 
-        if (isNotEmpty(text) && text.equalsIgnoreCase("/Лесь")) {
-            sendMessage(sendMessage, getRandomStringQuote());
-        } else {
-            String answer = findQuotes(text);
-            if (answer.isEmpty()) {
-                answer = "Нема таких слів у класіка! Спробуй ще!";
+        if (isNotEmpty(text)) {
+            if (text.equalsIgnoreCase("/Лесь")) {
+                sendMessage(sendMessage, getRandomStringQuote());
+            } else {
+                String answer = findQuotes(text);
+                if (answer.isEmpty()) {
+                    answer = "Нема таких слів у класіка! Спробуй ще!";
+                }
+                sendMessage(sendMessage, answer);
             }
-            sendMessage(sendMessage, answer);
         }
     }
 
