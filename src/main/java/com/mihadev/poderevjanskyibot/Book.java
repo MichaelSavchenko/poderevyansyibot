@@ -11,7 +11,8 @@ public enum Book {
     HEROJ_NASHOGO_CHASU_2("Герой нашого часу. Повість друга"),
     DIANA("Діана"),
     JOGI("Йоги"),
-    KACAPY("Кацапи. Присвячується національному питанню");
+    KACAPY("Кацапи. Присвячується національному питанню"),
+    KOROL_LITR("Король Літр. Трагедія");
 
     Book(String bookName) {
         this.bookName = bookName;
