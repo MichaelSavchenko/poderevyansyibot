@@ -5,13 +5,13 @@ public enum Book {
     PACAVATA_ISTORIA ("Пацавата історія"),
     HVOROBA_IVASYKA("Хвороба Івасика"),
     JAN_MARE("Жан Маре"),
-    HAMLET("Гамлєт, або Феномен датського кацапізма."),
+    HAMLET("Гамлєт, або Феномен датського кацапізма"),
     TSIKAVI_DOSLIDY("Цікаві досліди"),
-    HEROJ_NASHOGO_CHASU_1("Герой нашого часу. Повість перша."),
-    HEROJ_NASHOGO_CHASU_2("Герой нашого часу. Повість друга."),
+    HEROJ_NASHOGO_CHASU_1("Герой нашого часу. Повість перша"),
+    HEROJ_NASHOGO_CHASU_2("Герой нашого часу. Повість друга"),
     DIANA("Діана"),
     JOGI("Йоги"),
-    KACAPY("Кацапи. Присвячується національному питанню.");
+    KACAPY("Кацапи. Присвячується національному питанню");
 
     Book(String bookName) {
         this.bookName = bookName;
