@@ -8,7 +8,9 @@ public enum Book {
     HAMLET("Гамлєт, або Феномен датського кацапізма."),
     TSIKAVI_DOSLIDY("Цікаві досліди"),
     HEROJ_NASHOGO_CHASU_1("Герой нашого часу. Повість перша."),
-    HEROJ_NASHOGO_CHASU_2("Герой нашого часу. Повість друга.");
+    HEROJ_NASHOGO_CHASU_2("Герой нашого часу. Повість друга."),
+    DIANA("Діана"),
+    JOGI("Йоги");
 
     Book(String bookName) {
         this.bookName = bookName;
