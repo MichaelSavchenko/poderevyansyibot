@@ -1,5 +1,7 @@
 package com.mihadev.poderevjanskyibot;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -16,6 +18,9 @@ import static com.mihadev.poderevjanskyibot.LesBotService.getRandomStringQuote;
 import static java.util.Collections.singletonList;
 
 public class TelegramLesBotController extends TelegramLongPollingBot {
+    Logger logger = LoggerFactory.getLogger(TelegramLesBotController.class);
+
+
     @Override
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
@@ -27,12 +32,14 @@ public class TelegramLesBotController extends TelegramLongPollingBot {
         if (isNotEmpty(text)) {
             if (text.equalsIgnoreCase("/Лесь")) {
                 sendMessage(sendMessage, getRandomStringQuote());
+                logger.debug("Random quote");
             } else {
                 String answer = findQuotes(text);
                 if (answer.isEmpty()) {
                     answer = "Нема таких слів у класіка! Спробуй ще!";
                 }
                 sendMessage(sendMessage, answer);
+                logger.debug(answer);
             }
         }
     }
