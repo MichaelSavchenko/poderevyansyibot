@@ -11,6 +11,9 @@ import static java.util.Collections.singletonList;
 class LesBotService {
 
     private static String convertToAnswer(List<Quote> quotes) {
+        if (quotes.isEmpty()) {
+            return "";
+        }
         return quotes.stream()
                 .map(quote -> quote.getBook().bookName + " : " + quote.getText())
                 .collect(Collectors.joining("\n\n"));
