@@ -12,7 +12,9 @@ public enum Book {
     DIANA("Діана"),
     JOGI("Йоги"),
     KACAPY("Кацапи. Присвячується національному питанню"),
-    KOROL_LITR("Король Літр. Трагедія");
+    KOROL_LITR("Король Літр. Трагедія"),
+    DO_HUYA_MASLA("До хуя масла"),
+    OSTANOVIS_MGNOVENJE_TY_PREKRASNO("Остановісь, мгновєньє – ти прєкрасно!");
 
     Book(String bookName) {
         this.bookName = bookName;
