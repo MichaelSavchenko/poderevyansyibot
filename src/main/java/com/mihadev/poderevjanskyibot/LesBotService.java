@@ -15,7 +15,7 @@ class LesBotService {
             return "";
         }
         return quotes.stream()
-                .map(quote -> quote.getBook().bookName + " : " + quote.getText())
+                .map(quote -> quote.getBook().bookName + " :\n" + quote.getText())
                 .collect(Collectors.joining("\n\n"));
     }
 
