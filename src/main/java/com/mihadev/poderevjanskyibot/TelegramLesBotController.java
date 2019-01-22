@@ -18,7 +18,7 @@ import static com.mihadev.poderevjanskyibot.LesBotService.getRandomStringQuote;
 import static java.util.Collections.singletonList;
 
 public class TelegramLesBotController extends TelegramLongPollingBot {
-    Logger logger = LoggerFactory.getLogger(TelegramLesBotController.class);
+    private Logger logger = LoggerFactory.getLogger(TelegramLesBotController.class);
 
 
     @Override
