@@ -19,11 +19,17 @@ public enum Book {
     MNOJENNJA_V_UMI("Множення в умі, або Плинність часу"),
     NIRVANA("Нірвана"),
     PIZDEC("Піздєц"),
-    REPKA("Казка про рєпку, або Хулі не ясно?");
+    REPKA("Казка про рєпку, або Хулі не ясно?"),
+    RUH_JYTTYA("Рух життя, або Динамо"),
+    SNOBY("Сноби"),
+    SVOBODA("Свобода"),
+    UTOPIYA("Утопія"),
+    VASYLISA_EHOROVNA("Васiлiса Егоровна i мужичкi"),
+    IRJYK("Іржик"),
+    YOKO_I_SAMURAYI("Йоко і самураї");
 
     Book(String bookName) {
         this.bookName = bookName;
     }
-
     public String bookName;
 }
