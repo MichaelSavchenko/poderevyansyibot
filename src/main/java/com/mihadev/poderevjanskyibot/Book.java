@@ -26,7 +26,8 @@ public enum Book {
     UTOPIYA("Утопія"),
     VASYLISA_EHOROVNA("Васiлiса Егоровна i мужичкi"),
     IRJYK("Іржик"),
-    YOKO_I_SAMURAYI("Йоко і самураї");
+    YOKO_I_SAMURAYI("Йоко і самураї"),
+    PAVLIK_MOROZOV("Павлік Морозов. Епічна трагедія");
 
     Book(String bookName) {
         this.bookName = bookName;
