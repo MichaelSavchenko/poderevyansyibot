@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import static com.mihadev.poderevjanskyibot.Quotes.QUOTES;
 import static java.util.Collections.singletonList;
 
-class LesBotService {
+public class LesBotService {
 
     private static String convertToAnswer(List<Quote> quotes) {
         if (quotes.isEmpty()) {
@@ -29,7 +29,7 @@ class LesBotService {
         return convertToAnswer(result);
     }
 
-    static String getRandomStringQuote() {
+    public static String getRandomStringQuote() {
         Quote quote = getRandomQuote();
         return convertToAnswer(singletonList(quote));
     }

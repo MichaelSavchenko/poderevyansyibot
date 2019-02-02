@@ -1,5 +1,6 @@
 package com.mihadev.poderevjanskyibot;
 
+import com.mihadev.poderevjanskyibot.twitter.TwitterController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +10,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 
 @SpringBootApplication
 public class LesBotApplication {
+
     public static void main(String[] args) {
         ApiContextInitializer.init();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
@@ -17,6 +19,7 @@ public class LesBotApplication {
         } catch (TelegramApiRequestException e) {
             e.printStackTrace();
         }
+
         SpringApplication.run(LesBotApplication.class, args);
     }
 }
