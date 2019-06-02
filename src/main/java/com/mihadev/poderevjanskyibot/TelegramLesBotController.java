@@ -11,10 +11,12 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.util.List;
 import java.util.Objects;
 
 import static com.mihadev.poderevjanskyibot.LesBotService.findQuotes;
 import static com.mihadev.poderevjanskyibot.LesBotService.getRandomStringQuote;
+import static java.lang.Thread.sleep;
 import static java.util.Collections.singletonList;
 
 public class TelegramLesBotController extends TelegramLongPollingBot {
@@ -34,12 +36,20 @@ public class TelegramLesBotController extends TelegramLongPollingBot {
                 sendMessage(sendMessage, getRandomStringQuote());
                 logger.debug("Random quote");
             } else {
-                String answer = findQuotes(text);
-                if (answer.isEmpty()) {
-                    answer = "Нема таких слів у класіка! Спробуй ще!";
+                List<String> quotes = findQuotes(text);
+                if (quotes.isEmpty()) {
+                    sendMessage(sendMessage, "Не знайшов ніхуя! Спробуй ще!");
+                    return;
                 }
-                sendMessage(sendMessage, answer);
-                logger.debug(answer);
+                for (String quote : quotes) {
+                    sendMessage(sendMessage, quote);
+                    logger.debug(quote);
+                    try {
+                        sleep(200);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
     }

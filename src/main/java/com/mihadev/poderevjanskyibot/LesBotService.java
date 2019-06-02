@@ -6,32 +6,14 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 import static com.mihadev.poderevjanskyibot.Quotes.QUOTES;
+import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 
-public class LesBotService {
+class LesBotService {
 
-    private static String convertToAnswer(List<Quote> quotes) {
-        if (quotes.isEmpty()) {
-            return "";
-        }
-        return quotes.stream()
-                .map(quote -> quote.getBook().bookName + " :\n" + quote.getText())
-                .collect(Collectors.joining("\n\n"));
-    }
-
-    static String findQuotes(String text) {
-        List<Quote> result = new ArrayList<>();
-        for (Quote q : QUOTES) {
-            if (q.getText().toLowerCase().contains(text.toLowerCase())) {
-                result.add(q);
-            }
-        }
-        return convertToAnswer(result);
-    }
-
-    public static String getRandomStringQuote() {
+    static String getRandomStringQuote() {
         Quote quote = getRandomQuote();
-        return convertToAnswer(singletonList(quote));
+        return convertToAnswer(quote);
     }
 
     static Quote getRandomQuote() {
@@ -40,5 +22,30 @@ public class LesBotService {
         return QUOTES.get(i);
     }
 
+    static List<String> findQuotes(String text) {
+        List<Quote> result = new ArrayList<>();
+        for (Quote q : QUOTES) {
+            if (q.getText().toLowerCase().contains(text.toLowerCase())) {
+                result.add(q);
+            }
+        }
+        return convertToAnswers(result);
+    }
 
+    private static List<String> convertToAnswers(List<Quote> quotes) {
+        if (quotes.isEmpty()) {
+            return emptyList();
+        }
+        return quotes.stream()
+                .map(quote -> quote.getBook().bookName + " :\n" + quote.getText())
+                .collect(Collectors.toList());
+    }
+
+    private static String convertToAnswer(Quote quote) {
+        List<String> answers = convertToAnswers(singletonList(quote));
+        if (answers.size() == 1) {
+            return answers.get(0);
+        }
+        throw new IllegalStateException();
+    }
 }
