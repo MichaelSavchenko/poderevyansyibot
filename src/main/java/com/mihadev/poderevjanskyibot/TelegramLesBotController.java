@@ -35,7 +35,11 @@ public class TelegramLesBotController extends TelegramLongPollingBot {
             if (text.equalsIgnoreCase("/Лесь")) {
                 sendMessage(sendMessage, getRandomStringQuote());
                 logger.debug("Random quote");
-            } else {
+            } else if(text.length() < 3) {
+                sendMessage(sendMessage, "Пошукове слово як в бєлки хуй! Введи хоча б три літери");
+                logger.debug("Small messge");
+            }
+            else {
                 List<String> quotes = findQuotes(text);
                 if (quotes.isEmpty()) {
                     sendMessage(sendMessage, "Не знайшов ніхуя! Спробуй ще!");
