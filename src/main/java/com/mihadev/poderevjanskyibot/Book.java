@@ -31,6 +31,7 @@ public enum Book {
     DEN_KOLGOSPNYKA("День колгоспника"),
     TRIASOVYI_PERIOD("Тріасовий період, або пригоди хтивих павіанів Борі і Жори");
 
+
     Book(String bookName) {
         this.bookName = bookName;
     }
