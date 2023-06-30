@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
     @GetMapping("/les")
-    public Quote getRandomQuote() {
-        return LesBotService.getRandomQuote();
+    public String getRandomQuote() {
+        Quote randomQuote = LesBotService.getRandomQuote();
+        System.out.println(randomQuote);
+        return randomQuote.toString();
     }
 }

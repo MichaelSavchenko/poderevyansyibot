@@ -24,4 +24,10 @@ public class Quote {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return book.bookName + ":<br>" +
+                text.replaceAll("\n", ":<br>");
+    }
 }
