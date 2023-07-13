@@ -28,6 +28,6 @@ public class Quote {
     @Override
     public String toString() {
         return book.bookName + ":<br>" +
-                text.replaceAll("\n", ":<br>");
+                text.replaceAll("\n", "<br>");
     }
 }
