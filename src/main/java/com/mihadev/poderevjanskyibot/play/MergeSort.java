@@ -12,15 +12,12 @@ public class MergeSort {
 
         int middleIndex = initialArrayLength / 2;
 
-        int [] left = new int[middleIndex];
+        int[] left = new int[middleIndex];
         int rightArrayLength = initialArrayLength - middleIndex;
-        int [] right = new int[rightArrayLength];
+        int[] right = new int[rightArrayLength];
 
         System.arraycopy(initialArray, 0, left, 0, middleIndex);
-
-        for (int i = middleIndex, j = 0; i < initialArrayLength; i++, j++) {
-            right[j] = initialArray[i];
-        }
+        System.arraycopy(initialArray, middleIndex, right, 0, rightArrayLength);
 
         mergeSort(left);
         mergeSort(right);
@@ -34,9 +31,9 @@ public class MergeSort {
 
         int leftArrayIndex = 0, rightArrayIndex = 0;
 
-        for (int mergedArrayIndex = 0 ; mergedArrayIndex < mergedArrayLength; mergedArrayIndex++) {
+        for (int mergedArrayIndex = 0; mergedArrayIndex < mergedArrayLength; mergedArrayIndex++) {
 
-            if (rightArrayIndex >= right.length || leftArrayIndex < left.length && left[leftArrayIndex] < right[rightArrayIndex] ) {
+            if (rightArrayIndex >= right.length || leftArrayIndex < left.length && left[leftArrayIndex] < right[rightArrayIndex]) {
                 initialArray[mergedArrayIndex] = left[leftArrayIndex];
                 leftArrayIndex++;
             } else {
