@@ -40,6 +40,9 @@ clean << {
 }
 
 dependencies {
+    implementation 'junit:junit:4.13.1'
     compile group: 'org.telegram', name: 'telegrambots', version: '4.1'
     compile "org.springframework.boot:spring-boot-starter-web:2.1.2.RELEASE"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
